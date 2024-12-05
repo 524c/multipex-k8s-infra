@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: labs
+  namespace: argocd
+spec:
+  destination:
+    namespace: labs
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: labs/kustomize
+    repoURL: https://github.com/engagep2p/p2plabs-k8s-infra
+    targetRevision: HEAD
+  syncPolicy: {}
