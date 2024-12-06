@@ -3,21 +3,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: echo-server
-  namespace: default
+  name: front-test
+  namespace: multpex
 spec:
   selector:
     matchLabels:
-      app: echo-server
+      app: front-test
   replicas: 1
   template:
     metadata:
       labels:
-        app: echo-server
+        app: front-test
     spec:
       containers:
-        - name: echo-server
-          image: 0x524c/echo-server:latest
+        - name: front-test
+          image: 0x524c/front-test:latest
           ports:
             - containerPort: 3000
           resources:
@@ -32,12 +32,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: echo-server
-  namespace: default
+  name: front-test
+  namespace: multpex
 spec:
   type: ClusterIP
   ports:
     - port: 80
       targetPort: 3000
   selector:
-    app: echo-server
+    app: front-test

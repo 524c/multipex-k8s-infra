@@ -3,8 +3,8 @@ items:
   - apiVersion: gateway.networking.k8s.io/v1beta1
     kind: ReferenceGrant
     metadata:
-      name: allow-httproute-in-labs
-      namespace: labs
+      name: allow-httproute-in-multpex
+      namespace: multpex
     spec:
       from:
         - group: gateway.networking.k8s.io
